@@ -15,12 +15,12 @@ def recommnend_data(_id):
         data_item_base_frame=train_data();
     data_item_base_frame=pd.read_csv(path_data_save);
 
-    data_neighbors = pd.DataFrame(index=data_item_base_frame.columns, columns = range(1, 102))
+    data_neighbors = pd.DataFrame(index=data_item_base_frame.columns, columns = range(1, 12))
     # Order by similarity
     for i in range(0, len(data_item_base_frame.columns)):
-        data_neighbors.iloc[i,:101] = data_item_base_frame.iloc[0:, i].sort_values(ascending=False)[:101].index
+        data_neighbors.iloc[i,:11] = data_item_base_frame.iloc[0:, i].sort_values(ascending=False)[:11].index
     temp= data_neighbors.loc[_id];
     result=[];
-    for i in range(2,102):
+    for i in range(2,12):
         result.append(_id_data[temp[i]])
     return result
